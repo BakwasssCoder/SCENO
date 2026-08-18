@@ -48,8 +48,7 @@ begin
     (kolkata_id, 'the-rooftop', 'The Rooftop', 'Open-air rooftop venue with skyline views.', 150, 25000, 'Ballygunge, Kolkata',
       array['Parking','AC','Sound','DJ area','Catering','Private space'], 'APPROVED', true),
     (kolkata_id, 'indie-house', 'Indie House', 'Intimate live-music venue for acoustic sets.', 90, 15000, 'Salt Lake, Kolkata',
-      array['Sound','Private space'], 'APPROVED', true)
-  returning id into venue_xyz;
+      array['Sound','Private space'], 'APPROVED', true);
 
   select id into venue_xyz from venues where slug = 'xyz-club';
   select id into venue_rooftop from venues where slug = 'the-rooftop';
