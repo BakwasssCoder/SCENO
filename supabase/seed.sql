@@ -101,8 +101,8 @@ begin
     (event3, 'DJ Rishab', 'Resident DJ');
 
   insert into event_media (event_id, media_type, url, sort_order) values
-    (event1, 'image', '/demo/events/neon-saturday.jpg', 1),
-    (event2, 'image', '/demo/events/rooftop-sessions.jpg', 1),
-    (event3, 'image', '/demo/events/friday-after-dark.jpg', 1),
-    (event4, 'image', '/demo/events/indie-night.jpg', 1);
+    (event1, 'image', '/demo/events/neon-saturday.svg', 1),
+    (event2, 'image', '/demo/events/rooftop-sessions.svg', 1),
+    (event3, 'image', '/demo/events/friday-after-dark.svg', 1),
+    (event4, 'image', '/demo/events/indie-night.svg', 1);
 end $$;

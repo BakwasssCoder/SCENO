@@ -1,26 +1,219 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-sans);
   --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-display);
+  --font-display: var(--font-display);
+  --font-comic: var(--font-comic);
+  --color-electric-orange: var(--electric-orange);
+  --color-acid-green: var(--acid-green);
+  --color-electric-purple: var(--electric-purple);
+  --color-comic-yellow: var(--comic-yellow);
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* SCENO brand — day mode: white paper + bold comic-yellow, full comic energy. */
+  --electric-orange: oklch(0.7 0.19 41);
+  --acid-green: oklch(0.72 0.19 141);
+  --electric-purple: oklch(0.55 0.24 302);
+  --comic-yellow: oklch(0.87 0.19 96);
+
+  --background: oklch(0.99 0.004 90);
+  --foreground: oklch(0.16 0.01 90);
+  --surface: oklch(0.96 0.02 95);
+  --surface-foreground: oklch(0.16 0.01 90);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.16 0.01 90);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.16 0.01 90);
+  --primary: var(--comic-yellow);
+  --primary-foreground: oklch(0.16 0.01 90);
+  --secondary: oklch(0.94 0.015 90);
+  --secondary-foreground: oklch(0.16 0.01 90);
+  --muted: oklch(0.94 0.015 90);
+  --muted-foreground: oklch(0.42 0.01 90);
+  --accent: var(--electric-orange);
+  --accent-foreground: oklch(0.99 0.004 90);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.16 0.01 90 / 14%);
+  --input: oklch(0.16 0.01 90 / 14%);
+  --ring: var(--electric-orange);
+  --chart-1: var(--electric-orange);
+  --chart-2: var(--acid-green);
+  --chart-3: var(--electric-purple);
+  --chart-4: var(--comic-yellow);
+  --chart-5: oklch(0.5 0.01 90);
+  --radius: 0.75rem;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.16 0.01 90);
+  --sidebar-primary: var(--electric-orange);
+  --sidebar-primary-foreground: oklch(0.99 0.004 90);
+  --sidebar-accent: oklch(0.94 0.015 90);
+  --sidebar-accent-foreground: oklch(0.16 0.01 90);
+  --sidebar-border: oklch(0.16 0.01 90 / 14%);
+  --sidebar-ring: var(--electric-orange);
+}
+
+.dark {
+  /* SCENO brand — night mode: nightlife-first dark surface (default theme). */
+  --electric-orange: oklch(0.7 0.19 41);
+  --acid-green: oklch(0.92 0.24 128);
+  --electric-purple: oklch(0.62 0.25 302);
+  --comic-yellow: oklch(0.87 0.19 96);
+
+  --background: oklch(0.145 0.004 285);
+  --foreground: oklch(0.97 0.005 90);
+  --surface: oklch(0.19 0.006 285);
+  --surface-foreground: oklch(0.97 0.005 90);
+  --card: oklch(0.185 0.006 285);
+  --card-foreground: oklch(0.97 0.005 90);
+  --popover: oklch(0.185 0.006 285);
+  --popover-foreground: oklch(0.97 0.005 90);
+  --primary: var(--electric-orange);
+  --primary-foreground: oklch(0.145 0.004 285);
+  --secondary: oklch(0.24 0.008 285);
+  --secondary-foreground: oklch(0.97 0.005 90);
+  --muted: oklch(0.24 0.008 285);
+  --muted-foreground: oklch(0.66 0.01 285);
+  --accent: var(--acid-green);
+  --accent-foreground: oklch(0.145 0.004 285);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: var(--electric-orange);
+  --chart-1: var(--electric-orange);
+  --chart-2: var(--acid-green);
+  --chart-3: var(--electric-purple);
+  --chart-4: oklch(0.66 0.01 285);
+  --chart-5: oklch(0.4 0.01 285);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.145 0.004 285);
+  --sidebar-foreground: oklch(0.97 0.005 90);
+  --sidebar-primary: var(--electric-orange);
+  --sidebar-primary-foreground: oklch(0.145 0.004 285);
+  --sidebar-accent: oklch(0.24 0.008 285);
+  --sidebar-accent-foreground: oklch(0.97 0.005 90);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: var(--electric-orange);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-comic {
+    font-family: var(--font-comic);
+  }
+
+  /* Comic halftone dot texture — used sparingly behind hero/section eyebrows. */
+  .halftone {
+    background-image: radial-gradient(
+      currentColor 1px,
+      transparent 1.3px
+    );
+    background-size: 7px 7px;
+  }
+
+  /* Subtle film grain so flat dark surfaces don't look sterile. */
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .text-impact {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+  }
+
+  .comic-outline {
+    -webkit-text-stroke: 1.5px var(--background);
+    paint-order: stroke fill;
+  }
+
+  /* Hard offset shadow + thick ink border — the recurring comic-panel signature. */
+  .comic-card {
+    border-width: 2px;
+    border-color: var(--foreground);
+    box-shadow: 4px 4px 0 0 var(--foreground);
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease;
+  }
+  .comic-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 0 var(--foreground);
+  }
+  .comic-card:active {
+    transform: translate(0, 0);
+    box-shadow: 2px 2px 0 0 var(--foreground);
+  }
+
+  .comic-panel-title {
+    display: inline-block;
+    transform: rotate(-1.5deg);
+  }
 }
